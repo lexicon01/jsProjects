@@ -13,8 +13,65 @@ scores = [0,0];
 roundScore = 0;
 activePlayer = 0;
 
-dice = Math.floor(Math.random() * 6) + 1;
 
-document.querySelector('#current-' + activeplayer).textcontent = dice;
 
-document.querySelector('#score-0').textContent = dice;
+
+document.querySelector('.dice').style.display = 'none';
+
+document.getElementById('score-0').textContent = '0';
+document.getElementById('score-1').textContent = '0';
+document.getElementById('current-0').textContent = '0';
+document.getElementById('current-1').textContent = '0';
+
+
+document.querySelector('.btn-roll').addEventListener('click', function() {
+    //Do something here // anonymous function will be used here becuase we only want to use this function on this btn
+    dice = Math.floor(Math.random() * 6) + 1;
+
+    //2. display the result
+    var diceDOM = document.querySelector('.dice');
+    diceDOM.style.display = 'block';
+    diceDOM.src = 'img/dice-' + dice + '.png';
+
+    //3. Update the round score If the rolled number was NOT a 1
+    if (dice !== 1) {   //!== read in book something about type courosion
+        //Add score
+        roundScore += dice; // is like writing roundScore = rounscore + dice;
+        document.querySelector('#current-' + activePlayer).textContent = roundScore;
+    } else {
+        //Next Player
+        activePlayer === 0 ? activePlayer = 1 : activePlayer = 0; //turnerary Operator look this term up
+        roundScore = 0;
+        //******************** */
+        //same thing as writing
+        //if(activePlayer === 0) {
+        //     activePlayer = 1;
+        // }   else {
+        //     activePlayer = 0;
+        // }
+        //******************///
+        document.getElementById('current-0').textContent = '0';
+        document.getElementById('current-1').textContent = '0';
+
+        document.querySelector('.player-0-panel').classList.remove('active');
+        document.querySelector('.player-1-panel').classList.add('active');
+
+    }
+    
+
+} )
+
+
+
+
+
+
+//document.querySelector('#current-' + activePlayer).textContent = dice;
+//document.querySelector('#current-' + activeplayer).innerHTML = '<em>' + dice + '</em>';
+//var x = document.querySelector('#score-0').textContent;
+
+
+
+// function btn() {
+//     //Do something here
+// }           ourside function is good to use when you want to use it somewhere else
