@@ -1,0 +1,22 @@
+{
+  "name": "jonasjs",
+  "version": "1.0.0",
+  "description": "Javascript Project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lexicon01/jsProjects.git"
+  },
+  "author": "A-R-S",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lexicon01/jsProjects/issues"
+  },
+  "homepage": "https://github.com/lexicon01/jsProjects#readme",
+  "devDependencies": {
+    "live-server": "^1.2.0"
+  }
+}
