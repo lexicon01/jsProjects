@@ -150,5 +150,14 @@ i {
     box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
 }
 
+.legal {
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    background-color: lightblue;
+    color: #EB4D4D;
+    font-weight: 800;
+}
+
 .winner { background-color: #f7f7f7; }
 .winner .player-name { font-weight: 300; color: #EB4D4D; }
