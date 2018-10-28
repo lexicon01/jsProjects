@@ -7,14 +7,14 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 */
 
-//**************** yout on lesson 53  10/26/18 *************** */
+//**************** yout on lesson   10/26/18 *************** */
 
 var scores, roundScore, activePlayer, dice, gamePlaying;
 
 init();
 
 
-
+var lastDice
 
 document.querySelector('.btn-roll').addEventListener('click', function() {
     if (gamePlaying) {
@@ -27,7 +27,13 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
     diceDOM.src = 'img/dice-' + dice + '.png';
 
     //3. Update the round score If the rolled number was NOT a 1
-    if (dice !== 1) {   //!== read in book something about type courosion
+        if (dice === 6 && lastDice === 6) {
+            //Player looses score
+            scores[activePlayer] = 0;
+            document.querySelector('#score-' + activePlayer).textContent = '0';
+
+        } else if (dice !== 1) {   //!== read in book something about type courosion
+
         //Add score
         roundScore += dice; // is like writing roundScore = rounscore + dice;
         document.querySelector('#current-' + activePlayer).textContent = roundScore;
@@ -58,6 +64,8 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
                 //Next Player
                 nextPlayer();
     }
+
+    lastDice = dice;
 }
             // end of btn function..
 });
@@ -72,8 +80,12 @@ document.querySelector('.btn-hold').addEventListener('click', function() {
 
     // Update the UI
     document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
+
+    var input = document.querySelector('.final-score').value;
+    console.log(input);
+
     // Check if player won the game
-    if (scores[activePlayer] >= 20) {
+    if (scores[activePlayer] >= 100) {
         document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
         //document.querySelector('#name-' + activePlayer).style.fontWeight = '800';
 
