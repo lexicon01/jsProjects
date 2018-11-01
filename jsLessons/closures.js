@@ -69,7 +69,7 @@ function interviewQuestion(job) {
 
   */
 
-  workQ('designer');
+  //workQ('designer');
 
   function interviewQuestion(job) {
       return function(name) {
@@ -84,3 +84,5 @@ function interviewQuestion(job) {
   }
  
  //retirement(66)(1998);
+
+ interviewQuestion('teacher')('john');
