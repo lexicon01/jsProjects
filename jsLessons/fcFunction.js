@@ -10,13 +10,19 @@ function interviewQuestion(job) {
         }
     } else {
         return function(name) {
-            console.log('hello' + name + ', what do you do?');
+            console.log('hello ' + name + ', what do you do?');
         }
     }
 }
 
 var teacherQuestion = interviewQuestion('teacher');
-
+var designerQuestion = interviewQuestion('designer');
+var alexQuestion = interviewQuestion(); // asigning the function and leaving it empty and passing a paramiter is 1 way of getting it to work..smh 
 //teacherQuestion('John');
+//designerQuestion('alex');
+// you can do designerQuestion to multiple names
 
-interviewQuestion('hookin');
+//interviewQuestion('teacher')('mark');
+
+alexQuestion('alex');
+
