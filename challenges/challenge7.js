@@ -34,3 +34,32 @@ that).
 
 
 */
+
+var Question(question, ansers, correct) {
+    this.question = question;
+    this.ansers = answers;
+    this.correct = correct;
+}
+
+Question.prototype.displayQuestion() {
+    console.log(this.question);
+
+    for (var i = 0; i < this.answers.length; i++) {
+        console.log(i + ': ' + this.answers[i]);
+    }
+}
+
+var q1 = new Question('Is javascript the coolest programming language in the world?', 
+    ['yes', 'no'], 0); // the NEW keyword add this as a variable to the this.Question
+
+var q2 = new Question('what is the name of this course\'s teacher?', 
+    ['john', 'Micheal', 'Jonas'], 1);
+
+var q3 = new Question('what does best describe coding?',
+    ['boring', 'hard', 'fun', 'tedius'], 2);
+
+var questions = [q1, q2, q3];
+
+var n = Math.floor(Math.random() * questions.length);
+
+questions[n]
