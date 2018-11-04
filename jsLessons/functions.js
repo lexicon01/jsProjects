@@ -6,7 +6,7 @@
 */ 
 
 
-// Lecture: passing functions as aarguments
+// Lecture: passing functions as aarguments 65 Re do this many times..
 
 var years = [1990, 1965, 1937, 2005, 1998];
 
