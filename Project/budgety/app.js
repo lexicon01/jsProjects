@@ -39,12 +39,18 @@ var budgetController = (function() {
             exp: 0,
             inc: 0
         }
-    }
+
+
+    };
 
     return {
         addItem: function(type, des, val) {
 
             var newItem, ID;
+
+            //[1 2 3 4 5 ], next ID = 6
+            //[1 2 3 4 5 ], next ID = 9
+            // ID = last ID + 1
 
             //Create new ID
             if (data.allItems[type].length > 0) {
@@ -95,6 +101,20 @@ var UIController = (function() {
                  value:  document.querySelector(DOMstrings.inputValue).value
             };
 
+        },
+
+        addListItem: function(obj, type) {
+            var html;
+            // Create HTML string with placeholder text
+            if (type === 'inc') {
+                html =  '<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
+            } else if (type === 'exp') {
+                html =   '<div class="item clearfix" id="expense-0"><div class="item__description">Apartment rent</div><div class="right clearfix"><div class="item__value">- 900.00</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
+            }
+
+            // Replace the placeholder text with some actual data
+
+            // Insert the HTML into the DOM
         },
 
         getDOMstrings: function() {
