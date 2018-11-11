@@ -153,12 +153,12 @@ var UIController = (function() {
 
                 element = DOMstrings.incomeContainer;
 
-                html =  '<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
+                html =  '<div class="item clearfix" id="inc-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
             } else if (type === 'exp') {
 
                 element = DOMstrings.expensesContainer;
 
-                html =   '<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
+                html =   '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
             }
 
             // Replace the placeholder text with some actual data
@@ -259,8 +259,22 @@ var controller = (function(budgetCtrl, UICtrl) {
     };
 
     var ctrlDeleteItem = function(event) {
+        var itemID, splitID, type, ID;
 
-        console.log(event.target.parentNode.parentNode.parentNode.parentNode);
+        itemID = event.target.parentNode.parentNode.parentNode.parentNode;
+        if (itemID) {
+
+            //inc=1
+            splitID = itemID.split('-');
+            type = splitID[0];
+            ID = splitID[1];
+
+            // 1. dleete the item from the data strucure
+
+            // 2. delete the item from the UI
+
+            // 3. update and show the new budget
+        }
     };
 
    return {
